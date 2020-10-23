@@ -1,21 +1,33 @@
-package com.myself.incidentmanagementtool.dto;
+package com.myself.incidentmanagementtool.entity;
 
+import javax.persistence.*;
 
+@Entity
 public class Incident {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
 
+    @Column(name = "incident_name")
     private String name;
 
+    @Column(name = "error_reason")
     private String trigger;
 
+    @Column(name = "how_to_fix")
     private String howToFix;
 
+    @Column(name = "urgency")
     private String urgency;
 
+    @Column(name = "contact_team")
     private String contactTeam;
 
+    @Column(name = "effort")
     private String effort;
 
+    @Column(name = "version")
     private String version;
 
     public Integer getId() {

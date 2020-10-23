@@ -1,4 +1,4 @@
-package com.myself.incidentmanagementtool.configuration;
+package com.myself.incidentmanagementtool.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

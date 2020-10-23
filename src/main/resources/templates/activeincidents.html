@@ -52,15 +52,15 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="incident : ${incidents}">
-              <td><p><span th:text="${incident.name}"></span></p></td>
-              <td><p><span th:text="${incident.trigger}"></span></p></td>
-              <td><p><span th:text="${incident.urgency}"></span></p></td>
-              <td><p><span th:text="${incident.effort}"></span></p></td>
-              <td><p><span th:text="${incident.howToFix}"></span></p></td>
-              <td><p><span th:text="${incident.contactTeam}"></span></p></td>
-              <td><a th:href="@{'/editincident/' + ${incident.id}}" class=""><button type="button" class="btn btn-primary">Edit</button></a></td>
-              <td><a th:href="@{'/deleteincident/' + ${incident.id}}" class=""><button type="button" class="btn btn-primary">Delete</button></a></td>
+            <tr th:each="incidentDto : ${incidents}">
+              <td><p><span th:text="${incidentDto.name}"></span></p></td>
+              <td><p><span th:text="${incidentDto.trigger}"></span></p></td>
+              <td><p><span th:text="${incidentDto.urgency}"></span></p></td>
+              <td><p><span th:text="${incidentDto.effort}"></span></p></td>
+              <td><p><span th:text="${incidentDto.howToFix}"></span></p></td>
+              <td><p><span th:text="${incidentDto.contactTeam}"></span></p></td>
+              <td><a th:href="@{'/editincident/' + ${incidentDto.id}}" class=""><button type="button" class="btn btn-primary">Edit</button></a></td>
+              <td><a th:href="@{'/deleteincident/' + ${incidentDto.id}}" class=""><button type="button" class="btn btn-primary">Delete</button></a></td>
             </tr>
             </tbody>
           </table>
