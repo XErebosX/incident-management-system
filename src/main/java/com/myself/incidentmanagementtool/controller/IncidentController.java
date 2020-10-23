@@ -14,7 +14,7 @@ public class IncidentController {
 
     @GetMapping("/activeincidents")
     public String incidentsstatistic (Model model) {
-        model.addAttribute("incidents", incidentService.getIncidents());
+        model.addAttribute("incidents", incidentService.getAllActive());
         return "activeincidents";
     }
 }
