@@ -1,57 +1,65 @@
 package com.myself.incidentmanagementtool.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Incident {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
 
+    @NotNull
     @Column(name = "incident_name")
-    private String name;
+    private String incidentName;
 
+    @NotNull
     @Column(name = "error_reason")
-    private String trigger;
+    private String errorReason;
 
+    @NotNull
     @Column(name = "how_to_fix")
     private String howToFix;
 
+    @NotNull
     @Column(name = "urgency")
     private String urgency;
 
+    @NotNull
     @Column(name = "contact_team")
     private String contactTeam;
 
+    @NotNull
     @Column(name = "effort")
     private String effort;
 
-    @Column(name = "version")
-    private String version;
+    @NotNull
+    @Column(name = "status")
+    private String status;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getIncidentName() {
+        return incidentName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setIncidentName(String incidentName) {
+        this.incidentName = incidentName;
     }
 
-    public String getTrigger() {
-        return trigger;
+    public String getErrorReason() {
+        return errorReason;
     }
 
-    public void setTrigger(String trigger) {
-        this.trigger = trigger;
+    public void setErrorReason(String errorReason) {
+        this.errorReason = errorReason;
     }
 
     public String getHowToFix() {
@@ -86,11 +94,11 @@ public class Incident {
         this.effort = effort;
     }
 
-    public String getVersion() {
-        return version;
+    public String getStatus() {
+        return status;
     }
 
-    public void setVersion(String version) {
-        this.version = version;
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

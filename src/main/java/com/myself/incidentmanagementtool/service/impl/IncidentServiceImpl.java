@@ -16,7 +16,22 @@ public class IncidentServiceImpl implements IncidentService {
 
     @Override
     public List<Incident> getAllActive() {
-        //return incidentMapper.getIncidents();
         return incidentRepository.findAll();
+    }
+
+    @Override
+    public Incident getIncidentById(Integer id) throws Exception {
+        return incidentRepository.findById(id.toString()).orElseThrow(() -> new Exception("Student not found - " + id));
+    }
+
+    @Override
+    public void createIncident(Incident incident) {
+        try{
+            incidentRepository.saveAndFlush(incident);
+            System.out.println(incident.getId()+"<-----------------------------------------------");
+        }catch (Exception e){
+            System.out.println(e);
+            System.out.println(incident.getId()+"<-----------------------------------------------");
+        }
     }
 }

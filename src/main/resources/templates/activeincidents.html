@@ -1,71 +1,71 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <title>Incident-Management-Tool</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+  <title>Incident-Management-Tool</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" />
 
-    <link rel="stylesheet" type="text/css" href="../../css/main.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/main.css" />
 
-    <link
-      rel="stylesheet"
-      th:href="@{/css/home.css}"
-      href="../../css/home.css"
-    />
-  </head>
+  <link
+          rel="stylesheet"
+          th:href="@{/css/home.css}"
+          href="../../css/home.css"
+  />
+</head>
 
-  <body>
-    <nav class="navbar navbar-inverse">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">Incident-Management-Tool</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="/incidentstatistic">Incident-Statistic</a></li>
-            <li class="active"><a href="/activeincidents">Active-Incidents</a></li>
-            <li><a href="/inactiveincidents">Inactive-Incidents</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!--TABELLE-->
-    <div class="container">
-      <div class="table-header">
-        <a th:href="@{'/newincident'}" class="new-btn"><button type="button" class="btn btn-primary">New-Incident</button></a>
-      </div>
-      <div class="ticket_list">
-        <div class="table-responsive">
-          <table id="data-table" class="table table-striped table-bordered">
-            <thead>
-            <tr>
-              <th>name</th>
-              <th>trigger</th>
-              <th>urgency</th>
-              <th>effort</th>
-              <th>how_to_fix</th>
-              <th>contact_team</th>
-              <th></th>
-              <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="incidentDto : ${incidents}">
-              <td><p><span th:text="${incidentDto.name}"></span></p></td>
-              <td><p><span th:text="${incidentDto.trigger}"></span></p></td>
-              <td><p><span th:text="${incidentDto.urgency}"></span></p></td>
-              <td><p><span th:text="${incidentDto.effort}"></span></p></td>
-              <td><p><span th:text="${incidentDto.howToFix}"></span></p></td>
-              <td><p><span th:text="${incidentDto.contactTeam}"></span></p></td>
-              <td><a th:href="@{'/editincident/' + ${incidentDto.id}}" class=""><button type="button" class="btn btn-primary">Edit</button></a></td>
-              <td><a th:href="@{'/deleteincident/' + ${incidentDto.id}}" class=""><button type="button" class="btn btn-primary">Delete</button></a></td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Incident-Management-Tool</a>
     </div>
-  </body>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/incidentstatistic">Incident-Statistic</a></li>
+        <li class="active"><a href="/activeincidents">Active-Incidents</a></li>
+        <li><a href="/inactiveincidents">Inactive-Incidents</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!--TABELLE-->
+<div class="container">
+  <div class="table-header">
+    <a th:href="@{'/newincident'}" class="new-btn"><button type="button" class="btn btn-primary">New-Incident</button></a>
+  </div>
+  <div class="ticket_list">
+    <div class="table-responsive">
+      <table id="data-table" class="table table-striped table-bordered">
+        <thead>
+        <tr>
+          <th>incident_name</th>
+          <th>error_reason</th>
+          <th>urgency</th>
+          <th>effort</th>
+          <th>how_to_fix</th>
+          <th>contact_team</th>
+          <th></th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="incident : ${incidents}">
+          <td><p><span th:text="${incident.incidentName}"></span></p></td>
+          <td><p><span th:text="${incident.errorReason}"></span></p></td>
+          <td><p><span th:text="${incident.urgency}"></span></p></td>
+          <td><p><span th:text="${incident.effort}"></span></p></td>
+          <td><p><span th:text="${incident.howToFix}"></span></p></td>
+          <td><p><span th:text="${incident.contactTeam}"></span></p></td>
+          <td><a th:href="@{'/editincident/' + ${incident.id}}" class=""><button type="button" class="btn btn-primary">Edit</button></a></td>
+          <td><a th:href="@{'/deleteincident/' + ${incident.id}}" class=""><button type="button" class="btn btn-primary">Delete</button></a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
 </html>
